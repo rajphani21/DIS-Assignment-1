@@ -5,7 +5,7 @@ public class Program
 {
 	public static void Main()
 	{
-		Console.WriteLine("Q1 : Enter the Moves of Robot:");
+		Console.WriteLine("Q1 :Enter the Moves of Robot:");
 		string moves = Console.ReadLine();
 		//Console.WriteLine(moves.Length);
 		bool pos = JudgeCircle(moves);

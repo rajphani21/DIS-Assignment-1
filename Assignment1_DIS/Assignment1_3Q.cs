@@ -1,45 +1,45 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Assignment1_Summer2021
 {
-	public class Program
-	{
-		public static void Main(string[] args)
-		{
-			Console.WriteLine("Q6: Enter the sentence to convert:");
-			string sentence = Console.ReadLine();
-			string goatLatin = ToGoatLatin(sentence);
-			Console.WriteLine("Goat Latin for the Given Sentence is {0}", goatLatin);
-			Console.WriteLine();
-		}
-		public static string ToGoatLatin(string sentence)
-		{
-			String[] words = sentence.Split(' ');
-			string modified_sentence = "";
-			//Console.WriteLine(words.Length)
-			int iteration_number = 0;
-			foreach (string word in words)
-			{
-				//Console.WriteLine(word.Length);
-				if (word[0].ToString().Equals("a", StringComparison.OrdinalIgnoreCase) || word[0].ToString().Equals("e", StringComparison.OrdinalIgnoreCase) || word[0].ToString().Equals("i", StringComparison.OrdinalIgnoreCase) || word[0].ToString().Equals("o", StringComparison.OrdinalIgnoreCase) || word[0].ToString().Equals("u", StringComparison.OrdinalIgnoreCase))
-				//if(word[0].ToString() == "a" || word[0].ToString() == "e" || word[0].ToString() == "i" || word[0].ToString() == "o" || word[0].ToString() == "u")
-				{
-					modified_sentence = modified_sentence + " " + word + "ma";
-				}
-				else
-				{
-					modified_sentence = modified_sentence + " " + word.Substring(1) + word[0] + "ma";
-				}
-				iteration_number++;
-				for (int i = 0; i < iteration_number; i++)
-				{
-					modified_sentence = modified_sentence + "a";
-				}
-			}
-			Console.WriteLine(iteration_number);
-			return modified_sentence.Substring(1);
-		}
-	}
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine(" Q3 : ");
+            int[] arr = { 1, 2, 3, 1, 1, 3 };
+            int gp = NumIdenticalPairs(arr);
+            Console.WriteLine("The number of IdenticalPairs in the array are {0}:", gp);
+        }
+        public static int NumIdenticalPairs(int[] nums)
+        {
+            try
+            {
+                int count = 0;
+                Console.WriteLine(nums.Length);
+                for (int i = 0; i < nums.Length; i++)//used to for loops to compare one element with all other remaining elements
+                {
+                    for (int j = 1; j < nums.Length; j++)
+                    {
+                        if (i < j)
+                        {
+                            if (nums[i] == nums[j])//if this condition satisfies they make a pair and hence count is incremented
+                            {
+                                Console.WriteLine("i : " + i + " j : " + j);
+                                count++;
+                            }
+                        }
+                    }
+                }
+                return count;
+            }
+
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+    }
 }
